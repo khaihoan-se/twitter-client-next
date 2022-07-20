@@ -1,6 +1,19 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
 
 /* Your own custom component styles */
 
-@import 'tailwindcss/utilities';
+@import "tailwindcss/utilities";
+
+.light {
+    --main-color: #1d9bf0;
+    --bg-color: #ffffff;
+}
+.dark {
+    --main-color: #1d9bf0;
+    --bg-color: #000000;
+}
+
+.app {
+    @apply bg-th-bg-color;
+}
