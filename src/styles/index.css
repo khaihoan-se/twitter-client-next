@@ -22,6 +22,10 @@
     --shadow-color: theme('boxShadow.dark-shadow-dark');
 }
 
+svg {
+    @apply fill-current;
+}
+
 html, body {
     @apply h-full;
 }
