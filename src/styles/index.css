@@ -6,14 +6,30 @@
 @import "tailwindcss/utilities";
 
 .light {
-    --main-color: #1d9bf0;
-    --bg-color: #ffffff;
+    --main-color: rgb(29, 155, 240);
+    --bg-color: rgb(255, 255, 255);
+    --subbg-color: rgb(247, 249, 249);
+    --text-color: rgb(15, 20, 25);
+    --subtext-color: rgb(83, 100, 113);
+    --shadow-color: theme('boxShadow.white-shadow-dark');
 }
 .dark {
-    --main-color: #1d9bf0;
-    --bg-color: #000000;
+    --main-color: rgb(29, 155, 240);
+    --bg-color: rgb(0, 0, 0);
+    --subbg-color: rgb(22, 24, 28);
+    --text-color: rgb(231, 233, 234);
+    --subtext-color: rgb(113, 118, 123);
+    --shadow-color: theme('boxShadow.dark-shadow-dark');
+}
+
+html, body {
+    @apply h-full;
+}
+
+body {
+    @apply m-0 text-sm;
 }
 
 .app {
-    @apply bg-th-bg-color;
+    @apply bg-tt-bg-color text-tt-text-color;
 }

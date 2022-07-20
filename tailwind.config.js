@@ -12,9 +12,17 @@ module.exports = {
             emerald: colors.emerald,
             fuchsia: colors.fuchsia,
 
-            'th-main-color': 'var(--main-color)',
-            'th-bg-color': 'var(--bg-color)',
+            'tt-main-color': 'var(--main-color)',
+            'tt-bg-color': 'var(--bg-color)',
+            'tt-text-color': 'var(--text-color)',
+            'tt-subtext-color': 'var(--subtext-color)',
          },
+         boxShadow: {
+            'white-shadow-dark': 'rgb(101 119 134 / 20%) 0px 0px 15px, rgb(101 119 134 / 15%) 0px 0px 3px 1px;',
+            'dark-shadow-dark': 'rgb(255 255 255 / 20%) 0px 0px 15px, rgb(255 255 255 / 15%) 0px 0px 3px 1px;',
+
+            'tt-shadow': 'var(--shadow-color)'
+         }
       },
    },
    variants: {},
