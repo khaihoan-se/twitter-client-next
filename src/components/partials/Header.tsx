@@ -27,6 +27,12 @@ const Header = () => {
          <ProfileActiveIcon className='h-8 text-tt-text-color' />
          <ProfileLineIcon className='h-8 text-tt-text-color' />
          <MoreIcon className='h-8 text-tt-text-color' />
+         <div className='w-12 h-12 rounded-md bg-tt-main-color'></div>
+         <div className='w-12 h-12 rounded-md bg-tt-bg-color'></div>
+         <div className='w-12 h-12 rounded-md bg-tt-subbg-color'></div>
+         <div className='w-12 h-12 rounded-md bg-tt-text-color'></div>
+         <div className='w-12 h-12 rounded-md bg-tt-subtext-color'></div>
+
       </div>
    )
 }

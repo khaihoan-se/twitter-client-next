@@ -6,7 +6,6 @@
 @import "tailwindcss/utilities";
 
 .light {
-    --main-color: rgb(29, 155, 240);
     --bg-color: rgb(255, 255, 255);
     --subbg-color: rgb(247, 249, 249);
     --text-color: rgb(15, 20, 25);
@@ -14,12 +13,29 @@
     --shadow-color: theme('boxShadow.white-shadow-dark');
 }
 .dark {
-    --main-color: rgb(29, 155, 240);
     --bg-color: rgb(0, 0, 0);
     --subbg-color: rgb(22, 24, 28);
     --text-color: rgb(231, 233, 234);
     --subtext-color: rgb(113, 118, 123);
     --shadow-color: theme('boxShadow.dark-shadow-dark');
+}
+.blue {
+    --main-color: rgb(29, 155, 240);
+}
+.yellow {
+    --main-color: rgb(255, 212, 0);
+}
+.pink {
+    --main-color: rgb(249, 24, 128);
+}
+.violet {
+    --main-color: rgb(120, 86, 255);
+}
+.orange {
+    --main-color: rgb(255, 122, 0);
+}
+.green {
+    --main-color: rgb(0, 186, 124);
 }
 
 svg {

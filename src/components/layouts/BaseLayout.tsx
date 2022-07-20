@@ -6,9 +6,9 @@ interface BaseLayoutProps {
 }
 const BaseLayout = ({ children }: BaseLayoutProps) => {
     return (
-        <main className='app light'>
+        <main className='app light green'>
             <Header />
-            <div className='app--content'>{children}</div>
+            <div className='app-content'>{children}</div>
         </main>
     )
 }

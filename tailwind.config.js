@@ -14,6 +14,7 @@ module.exports = {
 
             'tt-main-color': 'var(--main-color)',
             'tt-bg-color': 'var(--bg-color)',
+            'tt-subbg-color': 'var(--subbg-color)',
             'tt-text-color': 'var(--text-color)',
             'tt-subtext-color': 'var(--subtext-color)',
          },
