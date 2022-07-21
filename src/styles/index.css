@@ -4,13 +4,16 @@
 /* Your own custom component styles */
 
 @import "tailwindcss/utilities";
-
+/* 🚌 Settup Theme Colors */
 .light {
     --bg-color: rgb(255, 255, 255);
     --subbg-color: rgb(247, 249, 249);
     --text-color: rgb(15, 20, 25);
     --subtext-color: rgb(83, 100, 113);
     --shadow-color: theme('boxShadow.white-shadow-dark');
+    --hover-header-color: rgba(15, 20, 25, 0.1);
+    --hover-main-color: rgba(0, 0, 0, 0.3);
+    --border-color: rgb(239, 243, 244);
 }
 .dark {
     --bg-color: rgb(0, 0, 0);
@@ -18,6 +21,9 @@
     --text-color: rgb(231, 233, 234);
     --subtext-color: rgb(113, 118, 123);
     --shadow-color: theme('boxShadow.dark-shadow-dark');
+    --hover-header-color: rgba(231, 233, 234, 0.1);
+    --hover-main-color: rgba(255, 255, 255, 0.3);
+    --border-color: rgb(47, 51, 54);
 }
 .blue {
     --main-color: rgb(29, 155, 240);
@@ -37,11 +43,12 @@
 .green {
     --main-color: rgb(0, 186, 124);
 }
-
+/* 🚁 Reset Css 🚁 */
 svg {
     @apply fill-current;
+    /* color: #1d9bf01a */
 }
-
+/* 🚁 Layout 🚁 */
 html, body {
     @apply h-full;
 }

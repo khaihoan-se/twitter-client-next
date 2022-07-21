@@ -17,6 +17,9 @@ module.exports = {
             'tt-subbg-color': 'var(--subbg-color)',
             'tt-text-color': 'var(--text-color)',
             'tt-subtext-color': 'var(--subtext-color)',
+            'tt-hover-header-color': 'var(--hover-header-color)',
+            'tt-hover-main-color': 'var(--hover-main-color)',
+            'tt-border-color': 'var(--border-color)',
          },
          boxShadow: {
             'white-shadow-dark': 'rgb(101 119 134 / 20%) 0px 0px 15px, rgb(101 119 134 / 15%) 0px 0px 3px 1px;',

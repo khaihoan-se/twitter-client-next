@@ -1,38 +1,41 @@
+import Link from 'next/link'
 import React from 'react'
-import ExploreActiveIcon from '../icons/ExploreActiveIcon'
-import ExploreLineIcon from '../icons/ExploreLineIcon'
-import HomeActiveIcon from '../icons/HomeActiveIcon'
-import HomeLineIcon from '../icons/HomeLineIcon'
-import MessageActiveIcon from '../icons/MessageActiveIcon'
-import MessageLineIcon from '../icons/MessageLineIcon'
-import MoreIcon from '../icons/MoreIcon'
-import NotificationActiveIcon from '../icons/NotificationActiveIcon'
-import NotificationLineIcon from '../icons/NotificationLineIcon'
-import ProfileActiveIcon from '../icons/ProfileActiveIcon'
-import ProfileLineIcon from '../icons/ProfileLineIcon'
-import Twitter from '../icons/Twitter'
+import Logo from '../shared/Logo'
+import NavMenu from '../shared/NavMenu'
 
 const Header = () => {
    return (
-      <div>
-         <Twitter className='h-8 text-tt-main-color' />
-         <HomeActiveIcon className='h-8 text-tt-text-color' />
-         <HomeLineIcon className='h-8 text-tt-text-color' />
-         <ExploreActiveIcon className='h-8 text-tt-text-color' />
-         <ExploreLineIcon className='h-8 text-tt-text-color' />
-         <NotificationActiveIcon className='h-8 text-tt-text-color' />
-         <NotificationLineIcon className='h-8 text-tt-text-color' />
-         <MessageActiveIcon className='h-8 text-tt-text-color' />
-         <MessageLineIcon className='h-8 text-tt-text-color' />
-         <ProfileActiveIcon className='h-8 text-tt-text-color' />
-         <ProfileLineIcon className='h-8 text-tt-text-color' />
-         <MoreIcon className='h-8 text-tt-text-color' />
-         <div className='w-12 h-12 rounded-md bg-tt-main-color'></div>
-         <div className='w-12 h-12 rounded-md bg-tt-bg-color'></div>
-         <div className='w-12 h-12 rounded-md bg-tt-subbg-color'></div>
-         <div className='w-12 h-12 rounded-md bg-tt-text-color'></div>
-         <div className='w-12 h-12 rounded-md bg-tt-subtext-color'></div>
-
+      <div className='bg-tt-bg-color grow items-end z-10'>
+         <div className='xl:w-[275px] w-[88px]'>
+            <div className='h-full top-0 fixed'>
+               <div className='overflow-y-auto justify-between h-full xl:w-[275px] w-[88px] px-[12px] flex flex-col'>
+                  {/* Top */}
+                  <div className='items-start'>
+                     {/* Logo */}
+                     <div className='py-1 max-w-full items-stretch'>
+                        <h1 className='min-w-[32px] items-stretch cursor-pointer flex'>
+                           <Link href='/'>
+                              <a className='min-w-[52px] min-h-[52px] cursor-pointer flex items-center justify-center hover:bg-[#1d9bf01a] rounded-full font-bold text-[15px]'>
+                                 <Logo className='h-8 w-8 text-tt-main-color' />
+                              </a>
+                           </Link>
+                        </h1>
+                     </div>
+                     {/* Menu */}
+                     <div className='w-full'>
+                        <NavMenu />
+                     </div>
+                     <div>
+                        Tw
+                     </div>
+                  </div>
+                  {/* Buttom */}
+                  <div>
+                     Avatar
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
    )
 }
