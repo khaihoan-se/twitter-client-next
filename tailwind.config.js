@@ -13,6 +13,7 @@ module.exports = {
             fuchsia: colors.fuchsia,
 
             'tt-main-color': 'var(--main-color)',
+            'tt-bg-atc-color': 'var(--bg-atc-color)',
             'tt-bg-color': 'var(--bg-color)',
             'tt-subbg-color': 'var(--subbg-color)',
             'tt-text-color': 'var(--text-color)',

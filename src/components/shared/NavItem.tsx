@@ -4,10 +4,10 @@ import { useRouter } from 'next/router';
 import React from 'react'
 
 interface NavItemProps {
-    title: string;
-    Icon: any;
+    title?: string;
+    Icon?: any;
     path: string;
-    IconActive: any
+    IconActive?: any
 }
 const NavItem = ({ title, Icon, path, IconActive }: NavItemProps) => {
     const router = useRouter()

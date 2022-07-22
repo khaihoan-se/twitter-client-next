@@ -7,6 +7,7 @@
 /* 🚌 Settup Theme Colors */
 .light {
     --bg-color: rgb(255, 255, 255);
+    --bg-atc-color: rgba(255, 255, 255, 0.85);
     --subbg-color: rgb(247, 249, 249);
     --text-color: rgb(15, 20, 25);
     --subtext-color: rgb(83, 100, 113);
@@ -17,6 +18,7 @@
 }
 .dark {
     --bg-color: rgb(0, 0, 0);
+    --bg-atc-color: rgba(0, 0, 0, 0.65);
     --subbg-color: rgb(22, 24, 28);
     --text-color: rgb(231, 233, 234);
     --subtext-color: rgb(113, 118, 123);
@@ -50,13 +52,41 @@ svg {
 }
 /* 🚁 Layout 🚁 */
 html, body {
-    @apply h-full;
+    @apply h-full overflow-auto;
 }
 
 body {
     @apply m-0 text-sm;
 }
+::-webkit-scrollbar { 
+    width: 0 !important;
+    display: none; 
+}
 
 .app {
     @apply bg-tt-bg-color text-tt-text-color;
+}
+
+/* Hidden Scroll Bar */
+.no--scrollbar::-webkit-scrollbar { 
+    width: 0 !important;
+    display: none; 
+}
+/* Text Post */
+.hashtag--text {
+    @apply text-tt-main-color font-bold hover:underline;
+}
+.link--text {
+    @apply text-tt-main-color hover:underline;
+}
+/* DraftEditor */
+.DraftEditor-root {
+    @apply relative w-full h-full flex;
+}
+.DraftEditor-editorContainer {
+    @apply z-10 w-full text-[18px];
+}
+/*  */
+.public-DraftEditorPlaceholder-inner {
+    @apply absolute left-0 top-1/2 translate-y-[-50%] text-[#536471] text-[20px];
 }
