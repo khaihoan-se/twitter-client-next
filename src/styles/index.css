@@ -56,6 +56,22 @@ svg {
     @apply fill-current;
     /* color: #1d9bf01a */
 }
+p, span, a, h1, h2, h3, h4, h5, h6, strong, em, small, i, b, u, code, pre, blockquote, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video, div {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+img {
+    pointer-events: none;
+}
 /* 🚁 Layout 🚁 */
 html, body {
     @apply h-full overflow-auto;
