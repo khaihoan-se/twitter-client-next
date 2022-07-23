@@ -6,6 +6,7 @@ import ReactHtmlParser from 'react-html-parser'
 import TheEarthIcon from '../icons/TheEarthIcon';
 import ToolEditer from './ToolEditer';
 import classNames from 'classnames';
+import ValuePhoto from './ValuePhoto';
 // import Image from './Image';
 
 const Editer = () => {
@@ -67,7 +68,12 @@ const Editer = () => {
     setTimeout(() => {
         setCheck(false)
     }, 3000)
-
+    const handleRemoveItem = (index: number) => {
+        setPreview([
+            ...preview.slice(0, index),
+            ...preview.slice(index + 1, preview.length),
+        ])
+    }
     return (
         <React.Fragment>
             <div className='bg-th-background py-[4px] max-h-[100vh] h-auto'>
@@ -84,23 +90,7 @@ const Editer = () => {
                                     placeholder="What’s happening?" 
                                 />
                             </div>
-                            {preview.length > 0 ? (
-                                <div className='w-full h-auto bg-slate-500'>
-                                    {/* <div className='w-full h-auto flex items-center'>
-                                        <div className='w-[50%] h-full'><img src={photo[0].name} alt='' className='w-full h-full' /></div>
-                                        <div className='w-[50%] h-full'><img src={photo[1].name} alt='' className='w-full h-full' /></div>
-                                    </div>
-                                    <div className='w-full h-auto flex items-center'>
-                                        <div className='w-[50%] h-full'><img src={photo[2].name} alt='' className='w-full h-full' /></div>
-                                        <div className='w-[50%] h-full'><img src={photo[3].name} alt='' className='w-full h-full' /></div>
-                                    </div> */}
-                                    {preview.map((item: any, index: number) => (
-                                        <img src={item} key={index} alt='' className='w-full h-full' />
-                                    ))}
-                                </div>
-                                ):
-                                null
-                            }
+                            {preview.length > 0 && <ValuePhoto photos={preview} handleRemoveItem={handleRemoveItem} />}
                             {/* Everyone can reply */}
                             <div className='w-full ml-[-8px] border-b-[1px] border-tt-border-color'>
                                 <div className='pb-[12px] min-h-[24px] text-tt-main-color font-bold text-[15px] items-center'>
@@ -125,6 +115,7 @@ const Editer = () => {
                                 </div>
                             </div>
                             {check && <div>chỉ 4 ảnh</div>}
+
                             <div>
                                 {newPost.map((item: any, index: number) => (
                                     <p className='text-[15px]' key={index}>

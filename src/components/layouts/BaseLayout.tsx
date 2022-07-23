@@ -6,7 +6,7 @@ interface BaseLayoutProps {
 }
 const BaseLayout = ({ children }: BaseLayoutProps) => {
     return (
-        <main className='app light blue'>
+        <main className='app light pink'>
             <div className='flex min-h-screen container mx-auto'>
                 <Header />
                 <div className='app-content items-start shrink grow flex basis-auto flex-col relative'>
