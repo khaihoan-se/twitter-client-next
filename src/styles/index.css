@@ -96,3 +96,22 @@ body {
 .public-DraftEditorPlaceholder-inner {
     @apply absolute left-0 top-1/2 translate-y-[-50%] text-[#536471] text-[20px];
 }
+/* Tools Editer */
+.toolediter--media:hover span {
+    @apply block;
+}
+.toolediter--gif:hover span {
+    @apply block;
+}
+.toolediter--poll:hover span {
+    @apply block;
+}
+.toolediter--emoji:hover span {
+    @apply block;
+}
+.toolediter--schedule:hover span {
+    @apply block;
+}
+.toolediter--location:hover span {
+    @apply block;
+}
