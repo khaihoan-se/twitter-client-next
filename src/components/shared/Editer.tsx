@@ -31,21 +31,27 @@ const TweetPost = () => {
                             <Avatar src='/unnamed.gif' className='w-[43px] h-[43px]' />
                         </div>
                         <div className='pt-[4px] w-full h-full'>
+                            {/* Rich Text Editor */}
                             <div className='min-h-[45px] w-full h-full flex items-center relative' onClick={handleSubText}>
                                 <Editor editorState={editorState} 
                                     onChange={setEditorState} 
                                     placeholder="What’s happening?" 
                                 />
                             </div>
+                            {/* Everyone can reply */}
                             <div className='w-full ml-[-8px] border-b-[1px] border-tt-border-color'>
                                 <div className='pb-[12px] min-h-[24px] text-tt-main-color font-bold text-[15px] items-center'>
-                                    <div className='hover:bg-[#1d9bf01a] inline-flex items-center py-[2px] px-[12px] rounded-full cursor-pointer'  onClick={handleSubmitData}>
+                                    <div className='hover:bg-tt-hover-maincl-color inline-flex items-center py-[2px] px-[12px] rounded-full cursor-pointer'  onClick={handleSubmitData}>
                                         <TheEarthIcon className='w-[16px] h-[16px] mr-[4px]' />
                                         <span>Everyone can reply</span>
                                     </div>
                                 </div>
                             </div>
-                            {/* <button onClick={handleSubmitData}>sub</button> */}
+                            {/* Tab Tools */}
+                            <div>
+                                Tab Tools
+                            </div>
+
                             <div>
                                 {newPost.map((item: any, index: number) => (
                                     <p className='text-[15px]' key={index}>

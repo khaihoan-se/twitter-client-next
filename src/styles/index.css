@@ -29,21 +29,27 @@
 }
 .blue {
     --main-color: rgb(29, 155, 240);
+    --hover-maincl-color: rgba(29, 155, 240, 0.102);
 }
 .yellow {
     --main-color: rgb(255, 212, 0);
+    --hover-maincl-color: rgba(255, 212, 0, 0.102);
 }
 .pink {
     --main-color: rgb(249, 24, 128);
+    --hover-maincl-color: rgba(249, 24, 128, 0.102);
 }
 .violet {
     --main-color: rgb(120, 86, 255);
+    --hover-maincl-color: rgba(120, 86, 255, 0.102);
 }
 .orange {
     --main-color: rgb(255, 122, 0);
+    --hover-maincl-color: rgba(255, 122, 0, 0.102);
 }
 .green {
     --main-color: rgb(0, 186, 124);
+    --hover-maincl-color: rgba(0, 186, 124, 0.102);
 }
 /* 🚁 Reset Css 🚁 */
 svg {

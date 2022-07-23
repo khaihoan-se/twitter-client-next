@@ -18,7 +18,7 @@ const Header = () => {
                      <div className='py-1 max-w-full items-stretch'>
                         <h1 className='min-w-[32px] items-stretch cursor-pointer flex'>
                            <Link href='/'>
-                              <a className='min-w-[52px] min-h-[52px] cursor-pointer flex items-center justify-center hover:bg-[#1d9bf01a] rounded-full font-bold text-[15px]'>
+                              <a className='min-w-[52px] min-h-[52px] cursor-pointer flex items-center justify-center hover:bg-tt-hover-maincl-color rounded-full font-bold text-[15px]'>
                                  <Logo className='h-8 w-8 text-tt-main-color' />
                               </a>
                            </Link>
