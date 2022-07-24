@@ -1,19 +1,21 @@
 import React, { useState, useRef } from 'react'
 import Avatar from './Avatar'
 import { Editor, EditorState, convertToRaw, ContentState } from 'draft-js'
-import { changeText } from '@/utils';
-import ReactHtmlParser from 'react-html-parser'
 import TheEarthIcon from '../icons/TheEarthIcon';
 import ToolEditer from './ToolEditer';
 import classNames from 'classnames';
 import ValuePhoto from './ValuePhoto';
-// import Image from './Image';
+import NoticeByPhoto from './NoticeByPhoto';
+import { useDispatch } from 'react-redux'
+import { addPost } from '@/redux/actions/postAction';
 
 const Editer = () => {
+    const dispatch = useDispatch()
+
     const [editorState, setEditorState] = useState(() =>
         EditorState.createEmpty()
     );
-    const [newPost, setNewPost] = useState<any>([])
+    // const [newPost, setNewPost] = useState<any>([])
 
     const [check, setCheck] = useState<boolean>(false)
 
@@ -26,12 +28,6 @@ const Editer = () => {
         if (editor.current !== null) {
             editor.current.focus();
         }
-    }
-    /* Handle Submit data */
-    const handleSubmitData = () => {
-        setNewPost(convertToRaw(editorState.getCurrentContent()).blocks)
-        const editor = EditorState.push(editorState, ContentState.createFromText(''), 'remove-range'); // Reset Input Editor
-        setEditorState(editor)
     }
     /* check the number of characters */
     const checkLenthInput = () => {
@@ -74,9 +70,22 @@ const Editer = () => {
             ...preview.slice(index + 1, preview.length),
         ])
     }
+    /* Handle Submit data */
+    const handleSubmitData = () => {
+        // setNewPost(convertToRaw(editorState.getCurrentContent()).blocks)
+        const data = {
+            description: convertToRaw(editorState.getCurrentContent()).blocks,
+            images: preview
+        }
+        dispatch(addPost(data))
+
+        const editor = EditorState.push(editorState, ContentState.createFromText(''), 'remove-range'); // Reset Input Editor
+        setEditorState(editor)
+        setPreview([])
+    }
     return (
         <React.Fragment>
-            <div className='bg-th-background py-[4px] max-h-[100vh] h-auto'>
+            <div className='bg-th-background py-[4px] h-auto'>
                 <div className='px-[14px] w-full h-full border-b-[1px] border-tt-border-color'>
                     <div className='flex-row flex'>
                         <div className='pt-[4px] basis-[43px] mr-[11px] grow-0'>
@@ -114,18 +123,17 @@ const Editer = () => {
                                     </div>
                                 </div>
                             </div>
-                            {check && <div>chỉ 4 ảnh</div>}
-
-                            <div>
+                            {/* <div>
                                 {newPost.map((item: any, index: number) => (
                                     <p className='text-[15px]' key={index}>
                                         {ReactHtmlParser(changeText(item.text))}
                                     </p>
                                 ))}
-                            </div>
+                            </div> */}
                         </div>   
                     </div>
                 </div>
+                {check && <NoticeByPhoto notification='Please choose either 1 GIF or up to 4 photos.' />}
             </div>
         </React.Fragment>
     )

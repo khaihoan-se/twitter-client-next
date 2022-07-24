@@ -1,9 +1,11 @@
 import React from 'react'
+import ListLineIcon from '../icons/ListLineIcon';
+import ProfileLineIcon from '../icons/ProfileLineIcon';
 import ValuePhotoItem from './ValuePhotoItem';
 
 interface ValuePhotoProps {
     photos: string[];
-    handleRemoveItem: any;
+    handleRemoveItem?: any;
 }
 const ValuePhoto = ({ photos, handleRemoveItem }: ValuePhotoProps) => {
     return (
@@ -60,7 +62,16 @@ const ValuePhoto = ({ photos, handleRemoveItem }: ValuePhotoProps) => {
                     </div>
                 )}
             </div>
-            <div>tools</div>
+            <div className='mt-[4px] flex items-center'>
+                <div className='flex items-center text-[13px] text-tt-subtext-color cursor-pointer mr-[46px]'>
+                    <ProfileLineIcon className='w-[1.25em] h-[1.25em] mx-[4px]' />
+                    <span className='hover:underline'>Tag People</span>
+                </div>
+                <div className='flex items-center text-[13px] text-tt-subtext-color cursor-pointer'>
+                    <ListLineIcon className='w-[1.25em] h-[1.25em] mx-[4px]' />
+                    <span className='hover:underline'>Add description</span>
+                </div>
+            </div>
         </div>
     )
 }
