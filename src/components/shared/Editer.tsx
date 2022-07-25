@@ -29,13 +29,6 @@ const Editer = () => {
             editor.current.focus();
         }
     }
-    /* check the number of characters */
-    const checkLenthInput = () => {
-        const post = convertToRaw(editorState.getCurrentContent()).blocks
-        if(post[0].text == ''){
-            return true
-        }        
-    }
     /* Change Photo */
     const onImageChange = (event: any) => {
         let files = event.target.files;
@@ -64,6 +57,14 @@ const Editer = () => {
     setTimeout(() => {
         setCheck(false)
     }, 3000)
+    /* check the number of characters */
+    const checkLenthInput = () => {
+        const post = convertToRaw(editorState.getCurrentContent()).blocks
+        if(post[0].text == '' && preview.length == 0){
+            return true
+        }        
+    }
+    /* handleRemoveItem */
     const handleRemoveItem = (index: number) => {
         setPreview([
             ...preview.slice(0, index),
@@ -83,6 +84,8 @@ const Editer = () => {
         setEditorState(editor)
         setPreview([])
     }
+    // console.log(convertToRaw(editorState.getCurrentContent()).blocks);
+    
     return (
         <React.Fragment>
             <div className='bg-th-background py-[4px] h-auto'>
@@ -123,13 +126,6 @@ const Editer = () => {
                                     </div>
                                 </div>
                             </div>
-                            {/* <div>
-                                {newPost.map((item: any, index: number) => (
-                                    <p className='text-[15px]' key={index}>
-                                        {ReactHtmlParser(changeText(item.text))}
-                                    </p>
-                                ))}
-                            </div> */}
                         </div>   
                     </div>
                 </div>
