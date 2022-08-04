@@ -131,3 +131,12 @@ body {
 .toolediter--location:hover span {
     @apply block;
 }
+
+.login--banner {
+    width: calc(100% - 55vw);
+}
+@media screen and (max-width: 1024px) {
+    .login--banner {
+        width: 100%;
+    }
+}

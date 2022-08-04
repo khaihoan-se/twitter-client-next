@@ -8,6 +8,7 @@ import ValuePhoto from './ValuePhoto';
 import NoticeByPhoto from './NoticeByPhoto';
 import { useDispatch } from 'react-redux'
 import { addPost } from '@/redux/actions/postAction';
+import axios from 'axios';
 
 const Editer = () => {
     const dispatch = useDispatch()
@@ -15,11 +16,12 @@ const Editer = () => {
     const [editorState, setEditorState] = useState(() =>
         EditorState.createEmpty()
     );
-    // const [newPost, setNewPost] = useState<any>([])
+    const [newPost, setNewPost] = useState<any>('')
 
     const [check, setCheck] = useState<boolean>(false)
 
     const [preview, setPreview] = useState<string[]>([])
+    const [images, setImages] = useState('')
     const fileobj: any = [];
 
     const editor = useRef<HTMLDivElement>(null);
@@ -31,6 +33,7 @@ const Editer = () => {
     }
     /* Change Photo */
     const onImageChange = (event: any) => {
+        setImages(event.target.files)
         let files = event.target.files;
         fileobj.push(files);
         let reader;
@@ -71,20 +74,56 @@ const Editer = () => {
             ...preview.slice(index + 1, preview.length),
         ])
     }
+    // test
+    const apiUrl = 'http://localhost:5000/api/';
+
+    const singleFileUpload = async (data: any, options: any) => {
+        try {
+            await axios.post(apiUrl + 'create-post', data, options);
+        } catch (error) {
+            throw error;
+        }
+    }
+    const [multipleProgress, setMultipleProgress] = useState(0);
+
+    const mulitpleFileOptions = {
+        onUploadProgress: (progressEvent: any) => {
+            const {loaded, total} = progressEvent;
+            const percentage = Math.floor(((loaded / 1000) * 100) / (total / 1000));
+            setMultipleProgress(percentage);
+        },
+        headers: {
+            Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZTI5NjcyNGE4OGYwMjZkYzJkMmVhMyIsImlhdCI6MTY1OTU0MzE2OSwiZXhwIjoxNjU5NjI5NTY5fQ.ppLPVZivkO8rgkHKfFN0d_pQGNGwhmeUQUOjOzga92Y',
+            Accept: '*/*',
+
+        }
+    }
     /* Handle Submit data */
-    const handleSubmitData = () => {
-        // setNewPost(convertToRaw(editorState.getCurrentContent()).blocks)
+    
+    const handleSubmitData = async () => {
+        setNewPost(convertToRaw(editorState.getCurrentContent()).blocks)
         const data = {
             description: convertToRaw(editorState.getCurrentContent()).blocks,
             images: preview
         }
+        // console.log(data.description);
+        
         dispatch(addPost(data))
-
+        const formData: any = new FormData();
+        for (let j = 0; j < data.description.length; j++) {
+            formData.append('key', data.description[j].key)
+            formData.append('text', data.description[j].text)
+        }
+        // formData.append('description', newPost)
+        for (let i = 0; i < images.length; i++) {
+            formData.append('images', images[i]);
+        }
+        
+        await singleFileUpload(formData, mulitpleFileOptions)
         const editor = EditorState.push(editorState, ContentState.createFromText(''), 'remove-range'); // Reset Input Editor
         setEditorState(editor)
         setPreview([])
     }
-    // console.log(convertToRaw(editorState.getCurrentContent()).blocks);
     
     return (
         <React.Fragment>

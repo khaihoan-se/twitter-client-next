@@ -11,9 +11,7 @@ interface CardPostProps {
     description: any;
     images: any
 }
-const CardPost: React.FC<CardPostProps> = ({description, images}) => {
-    console.log(description);
-    
+const CardPost: React.FC<CardPostProps> = ({description, images}) => {    
     return (
         <React.Fragment>
             <div className='bg-tt-bg-color py-[4px] max-h-[100vh] h-auto border-b-[1px] border-tt-border-color cursor-pointer hover:bg-tt-hover-main-color'>

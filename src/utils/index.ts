@@ -36,6 +36,5 @@ export const changeText = (text: string) => {
         }
         return `<span>${word}</span>`;
     })
-    console.log('text', text.length);
     return newText.join(' ');
 }
