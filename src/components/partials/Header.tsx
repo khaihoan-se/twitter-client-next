@@ -5,8 +5,12 @@ import CardUser from '../shared/CardUser'
 import Logo from '../shared/Logo'
 import NavMenu from '../shared/NavMenu'
 import { BiDotsHorizontalRounded } from 'react-icons/bi'
+import { useSelector } from 'react-redux'
 
 const Header = () => {
+   const { user, isLogged } = useSelector((state: any) => state.auth)
+   console.log(isLogged);
+   
    return (
       <div className='bg-tt-bg-color grow items-end z-10'>
          <div className='xl:w-[275px] sm:w-[88px] w-[68px]'>

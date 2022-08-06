@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react'
 
 interface Icon {
@@ -25,7 +26,17 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         ...inputProps
     } = props
     return (
-        <div>Input</div>
+        <div className='w-full'>
+            <input
+                ref={ref}
+                type='text' 
+                placeholder={label}
+                className={classNames(
+                    'w-full h-full outline-none border-none'
+                )}
+                {...inputProps}
+            />
+        </div>
     )
 })
 
