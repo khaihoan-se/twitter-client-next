@@ -5,8 +5,7 @@ import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import LoginApi from '@/api/LoginApi';
 import { dispatchUser, dispatchLogin, dispatchToken } from '@/redux/actions/authAction'
-import { AuthState } from '@/types'
-import { Helmet } from 'react-helmet';
+import useLocalStorage from '@/hooks/useLocalStorage';
 
 interface BaseLayoutProps {
     children: ReactNode;
@@ -16,7 +15,7 @@ const BaseLayout = ({ children }: BaseLayoutProps) => {
     const router = useRouter()
     const dispatch = useDispatch()
     const auth = useSelector((state: any) => state.auth)
-    const [loading, setLoading] = useState(true)
+    const [token, setToken] = useLocalStorage<string>('token', '')
 
     useEffect(() => {
         const firstLogin = localStorage.getItem('firstLogin') || '';
@@ -26,22 +25,20 @@ const BaseLayout = ({ children }: BaseLayoutProps) => {
                 dispatch(dispatchUser(data.user))
                 dispatch(dispatchLogin());
                 dispatch(dispatchToken(data.access_token))
-                setLoading(false)
+                setToken(data.access_token)
             } catch (error) {
                 console.log(error)
             }
         })()
     }, [auth.isLogged])
     
-    if(loading) return <div className='w-full h-full fixed inset-0 bg-tt-bg-color z-50'></div>
     return (
         <>
-            <Helmet>
+            {/* <Helmet>
                 <meta charSet="utf-8" />
                 <body className='app light blue' />
-            </Helmet>
-            <main>
-                {/* {loading && <div className='w-full h-full fixed inset-0 bg-tt-bg-color z-50'></div>} */}
+            </Helmet> */}
+            <main className='app light blue'>
                 <div className={classNames(
                     'flex min-h-screen mx-auto',
                     router.pathname !== '/login' ? 'container' : ''

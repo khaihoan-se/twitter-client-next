@@ -93,7 +93,7 @@ const Editer = () => {
             setMultipleProgress(percentage);
         },
         headers: {
-            Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZTI5NjcyNGE4OGYwMjZkYzJkMmVhMyIsImlhdCI6MTY1OTU0MzE2OSwiZXhwIjoxNjU5NjI5NTY5fQ.ppLPVZivkO8rgkHKfFN0d_pQGNGwhmeUQUOjOzga92Y',
+            Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZTE0YTJiMDhhOGNhNjYzNThkOGFmOCIsImlhdCI6MTY1OTg1NzI4MywiZXhwIjoxNjU5OTQzNjgzfQ.ePJ5qnJ6aeetvMp92TxxZo-Do_kdJiW5tiylA61AQAI',
             Accept: '*/*',
 
         }

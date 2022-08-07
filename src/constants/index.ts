@@ -22,3 +22,7 @@ export const MENU_HEADER_LISTS = [
     { page: 'Lists', path: '/lists', icon: ListLineIcon, activeIcon: ListActionIcon },
     { page: 'Profile', path: '/login', icon: ProfileLineIcon, activeIcon: ProfileActiveIcon },
 ]
+export const MENU_HEADER_LISTS_MOBILE = [
+    { page: 'Explore', path: '/explore', icon: ExploreLineIcon, activeIcon: ExploreActiveIcon },
+    { page: 'Settings', path: '/settings', icon: HomeLineIcon, activeIcon: HomeActiveIcon },
+]

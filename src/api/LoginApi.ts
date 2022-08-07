@@ -12,6 +12,15 @@ const LoginApi = {
     getTokenSuccess: () => {
         const url = 'http://localhost:5000/api/refresh_token';
         return axios.post(url, null)
+    },
+    getUserInfo: (token: string) => {
+        const url = 'info'
+        return axiosClient.get(url, {
+            headers: {
+                Authorization: token
+                // Authorization: JSON.stringify(token)
+            }
+        });
     }
 }
 

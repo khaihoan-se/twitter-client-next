@@ -3,7 +3,7 @@ import Image from '@/components/shared/Image'
 import Input from '@/components/shared/Input'
 import Logo from '@/components/shared/Logo'
 import { NextPage } from 'next'
-import React, { useState, useMemo } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useDispatch, useSelector } from 'react-redux'
 import { dispatchLogin } from '@/redux/actions/authAction'
@@ -12,13 +12,7 @@ import useLocalStorage from '@/hooks/useLocalStorage'
 const initialState = { email: '', password: '', error: '', success: ''}
 
 const LoginPage: NextPage = () => {
-    const { isLogged } = useSelector((state: any) => state.auth)
     const router = useRouter()
-    if(isLogged) {
-        router.push('/')
-        return <div className='w-full h-full fixed inset-0 bg-tt-bg-color z-50'></div>
-    }
-    // isLogged && router.push('/')
 
     const [firstLogin, setFirstLogin] = useLocalStorage<boolean>('firstLogin', false);
 
@@ -44,7 +38,12 @@ const LoginPage: NextPage = () => {
             err.response.data.message && 
             setUser({...user, error: err.response.data.message, success: '' })
         }
-    }    
+    }
+    // Prefetch the dashboard page
+    useEffect(() => {
+        // Prefetch the dashboard page
+        router.prefetch('/')
+    }, [])
     return (
         <React.Fragment>
             <div className='w-full min-h-screen bg-white'>
@@ -81,5 +80,4 @@ const LoginPage: NextPage = () => {
         </React.Fragment>
     )
 }
-
 export default LoginPage

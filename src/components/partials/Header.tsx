@@ -30,25 +30,29 @@ const Header = () => {
                      </div>
                      {/* Menu */}
                      <div className='w-full'>
-                        <NavMenu />
+                        <NavMenu isLogged={isLogged} />
                      </div>
                      {/* Button TweetButton */}
-                     <div className='sm:w-[90%] w-[100%] my-[4px]'>
-                        <div className='bg-tt-main-color min-w-[52px] min-h-[52px] cursor-pointer xl:px-[32px] p-0 rounded-full flex items-center justify-center text-[17px] text-white font-bold'>
-                           <span className='xl:block hidden'>Tweet</span>
-                           <TweetButton className='w-[24px] h-[24px] text-white xl:hidden block' />
+                     {isLogged && (
+                        <div className='sm:w-[90%] w-[100%] my-[4px]'>
+                           <div className='bg-tt-main-color min-w-[52px] min-h-[52px] cursor-pointer xl:px-[32px] p-0 rounded-full flex items-center justify-center text-[17px] text-white font-bold'>
+                              <span className='xl:block hidden'>Tweet</span>
+                              <TweetButton className='w-[24px] h-[24px] text-white xl:hidden block' />
+                           </div>
                         </div>
-                     </div>
+                     )}
                   </div>
                   {/* Buttom */}
-                  <div className='my-[12px] flex items-center justify-between sm:p-[12px] p-0 rounded-full hover:bg-tt-hover-header-color cursor-pointer w-full'>
-                     <div>
-                        <CardUser name='Yuu' email='yuu.io' />
+                  {isLogged && (
+                     <div className='my-[12px] flex items-center justify-between sm:p-[12px] p-0 rounded-full hover:bg-tt-hover-header-color cursor-pointer w-full'>
+                        <div>
+                           <CardUser name='Yuu' email='yuu.io' />
+                        </div>
+                        <div className='xl:block hidden'>
+                           <BiDotsHorizontalRounded className='text-[20px]' />
+                        </div>
                      </div>
-                     <div className='xl:block hidden'>
-                        <BiDotsHorizontalRounded className='text-[20px]' />
-                     </div>
-                  </div>
+                  )}
                </div>
             </div>
          </div>
@@ -56,4 +60,4 @@ const Header = () => {
    )
 }
 
-export default Header
+export default React.memo(Header)
