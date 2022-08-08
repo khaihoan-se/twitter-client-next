@@ -9,7 +9,6 @@ import { useSelector } from 'react-redux'
 
 const Header = () => {
    const { user, isLogged } = useSelector((state: any) => state.auth)
-   console.log(isLogged);
    
    return (
       <div className='bg-tt-bg-color grow items-end z-10'>
@@ -46,7 +45,7 @@ const Header = () => {
                   {isLogged && (
                      <div className='my-[12px] flex items-center justify-between sm:p-[12px] p-0 rounded-full hover:bg-tt-hover-header-color cursor-pointer w-full'>
                         <div>
-                           <CardUser name='Yuu' email='yuu.io' />
+                           <CardUser name={user.fullname} email={user.username} url={user.avatar} />
                         </div>
                         <div className='xl:block hidden'>
                            <BiDotsHorizontalRounded className='text-[20px]' />

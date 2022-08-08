@@ -3,6 +3,8 @@ import { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 import store from '@/redux/store'
 import axios from 'axios'
+import { CookiesProvider } from 'react-cookie'
+
 import '../styles/index.css'
 import 'es6-shim'
 
@@ -12,12 +14,13 @@ function MyApp({ Component, pageProps }: AppProps) {
    return (
       <>
          <Provider store={store}>
-            <BaseLayout>
-               <Component {...pageProps} />
-            </BaseLayout>
+            <CookiesProvider>
+               <BaseLayout>
+                  <Component {...pageProps} />
+               </BaseLayout>
+            </CookiesProvider>
          </Provider>
       </>
    )
 }
-
 export default MyApp

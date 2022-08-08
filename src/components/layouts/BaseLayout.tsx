@@ -1,11 +1,12 @@
 import Header from '@/components/partials/Header'
-import { ReactNode, useEffect, useState } from 'react'
+import { ReactNode, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import LoginApi from '@/api/LoginApi';
 import { dispatchUser, dispatchLogin, dispatchToken } from '@/redux/actions/authAction'
 import useLocalStorage from '@/hooks/useLocalStorage';
+import { useCookies } from 'react-cookie';
 
 interface BaseLayoutProps {
     children: ReactNode;
@@ -13,19 +14,25 @@ interface BaseLayoutProps {
 
 const BaseLayout = ({ children }: BaseLayoutProps) => {
     const router = useRouter()
-    const dispatch = useDispatch()
-    const auth = useSelector((state: any) => state.auth)
-    const [token, setToken] = useLocalStorage<string>('token', '')
 
+    const dispatch = useDispatch()
+
+    const auth = useSelector((state: any) => state.auth)
+
+    // const [firstLogin, setFirstLogin] = useLocalStorage<boolean>('firstLogin', false);
+
+    // store cookies with 
+    const [cookies, setCookie] = useCookies(['token']);
+    // call access_token react-cookie
     useEffect(() => {
-        const firstLogin = localStorage.getItem('firstLogin') || '';
+        const firstLogin = localStorage.getItem('firstLogin')
         firstLogin && (async () => {
             try {
                 const { data } = await LoginApi.getTokenSuccess()
                 dispatch(dispatchUser(data.user))
                 dispatch(dispatchLogin());
                 dispatch(dispatchToken(data.access_token))
-                setToken(data.access_token)
+                setCookie('token', data.access_token)
             } catch (error) {
                 console.log(error)
             }
@@ -64,5 +71,4 @@ const BaseLayout = ({ children }: BaseLayoutProps) => {
         </>
     )
 }
-
 export default BaseLayout

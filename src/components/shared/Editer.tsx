@@ -6,12 +6,14 @@ import ToolEditer from './ToolEditer';
 import classNames from 'classnames';
 import ValuePhoto from './ValuePhoto';
 import NoticeByPhoto from './NoticeByPhoto';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addPost } from '@/redux/actions/postAction';
 import axios from 'axios';
 
 const Editer = () => {
     const dispatch = useDispatch()
+
+    const { user } = useSelector((state: any) => state.auth)
 
     const [editorState, setEditorState] = useState(() =>
         EditorState.createEmpty()
@@ -131,7 +133,8 @@ const Editer = () => {
                 <div className='px-[14px] w-full h-full border-b-[1px] border-tt-border-color'>
                     <div className='flex-row flex'>
                         <div className='pt-[4px] basis-[43px] mr-[11px] grow-0'>
-                            <Avatar src='/unnamed.gif' className='w-[43px] h-[43px]' />
+                            <Avatar src={user.avatar ? user.avatar : '/img/benner_login_242000.png'} className='w-[43px] h-[43px]' />
+                            {/* <Avatar src={url ? url : '/img/benner_login_242000.png'} /> */}
                         </div>
                         <div className='pt-[4px] w-full h-full'>
                             {/* Rich Text Editor */}

@@ -5,14 +5,17 @@ import Logo from '@/components/shared/Logo'
 import { NextPage } from 'next'
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { dispatchLogin } from '@/redux/actions/authAction'
 import useLocalStorage from '@/hooks/useLocalStorage'
+import { useCookies } from 'react-cookie';
 
 const initialState = { email: '', password: '', error: '', success: ''}
 
 const LoginPage: NextPage = () => {
     const router = useRouter()
+
+    const [cookies, setCookie] = useCookies(['token']);
 
     const [firstLogin, setFirstLogin] = useLocalStorage<boolean>('firstLogin', false);
 
@@ -20,11 +23,13 @@ const LoginPage: NextPage = () => {
 
     const [ user, setUser ] = useState(initialState)
     const { email, password } = user
+
     // handle change input get info email, password login
     const handleChangeUser = (event: any) => {
         const { name, value } = event.target;
         setUser({...user, [name]:value, error: '', success: '' })
     }
+
     // handle submit login
     const handleSubmit = async (event: any) => {
         event.preventDefault()
@@ -39,11 +44,19 @@ const LoginPage: NextPage = () => {
             setUser({...user, error: err.response.data.message, success: '' })
         }
     }
+
     // Prefetch the dashboard page
     useEffect(() => {
         // Prefetch the dashboard page
         router.prefetch('/')
     }, [])
+
+    // useEffect(() => {
+    //     cookies.token && router.push('/')
+    // }, [cookies])
+    
+    // if(cookies.token) return (<div className='w-full h-full fixed inset-0 z-50 bg-tt-bg-color text-[61px] flex items-center justify-center'>Loading...</div>)
+
     return (
         <React.Fragment>
             <div className='w-full min-h-screen bg-white'>

@@ -10,7 +10,7 @@ const CardUser = ({ name, email, url }: CardUserProps) => {
     return (
         <div className='flex items-center'>
             <div>
-                <Avatar src='/unnamed.gif' />
+                <Avatar src={url ? url : '/img/benner_login_242000.png'} />
             </div>
             <div className='mx-[12px] xl:block hidden'>
                 <div className='max-w-full shrink text-[15px] font-bold'><span>{name}</span></div>
