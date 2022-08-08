@@ -14,7 +14,13 @@ export function middleware(request: NextRequest) {
       }
    }
    // check if the token is valid page Home
-   if(url.pathname === '/') {
+   if(
+      (url.pathname === '/') || 
+      (url.pathname === '/messages') || 
+      (url.pathname === '/notifications') ||
+      (url.pathname === '/bookmarks') ||
+      (url.pathname === '/lists')
+   ) {
       if(!cookieToken) {
          return NextResponse.redirect(new URL('/login', request.url))
       }
