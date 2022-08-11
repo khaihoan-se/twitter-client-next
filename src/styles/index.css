@@ -139,3 +139,7 @@ body {
         width: 100%;
     }
 }
+
+.bg--opacity {
+    background: rgba(0, 0, 0, 0.3);
+}

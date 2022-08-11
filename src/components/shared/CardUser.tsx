@@ -12,7 +12,7 @@ const CardUser = ({ name, email, url }: CardUserProps) => {
             <div>
                 <Avatar src={url ? url : '/img/benner_login_242000.png'} />
             </div>
-            <div className='mx-[12px] xl:block hidden'>
+            <div className='mx-[12px] xl:block hidden max-w-[129px] overflow-hidden'>
                 <div className='max-w-full shrink text-[15px] font-bold'><span>{name}</span></div>
                 <div className='max-w-full shrink text-[15px] font-normal text-tt-subtext-color'><span>@{email}</span></div>
             </div>

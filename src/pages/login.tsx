@@ -8,20 +8,20 @@ import { useRouter } from 'next/router'
 import { useDispatch } from 'react-redux'
 import { dispatchLogin } from '@/redux/actions/authAction'
 import useLocalStorage from '@/hooks/useLocalStorage'
-import { useCookies } from 'react-cookie';
+import NotifyModule from '@/components/shared/NotifyModule'
 
 const initialState = { email: '', password: '', error: '', success: ''}
 
 const LoginPage: NextPage = () => {
     const router = useRouter()
-
-    const [cookies, setCookie] = useCookies(['token']);
+    // const [cookies, setCookie] = useCookies(['token']);
 
     const [firstLogin, setFirstLogin] = useLocalStorage<boolean>('firstLogin', false);
 
     const dispatch = useDispatch()
 
     const [ user, setUser ] = useState(initialState)
+    const [ showNotify, setShowNotify ] = useState<boolean>(false)
     const { email, password } = user
 
     // handle change input get info email, password login
@@ -41,7 +41,7 @@ const LoginPage: NextPage = () => {
             router.push('/')
         } catch (err: any) {
             err.response.data.message && 
-            setUser({...user, error: err.response.data.message, success: '' })
+            setUser({...user, error: err.response.data.message, success: '' })            
         }
     }
 
@@ -51,15 +51,9 @@ const LoginPage: NextPage = () => {
         router.prefetch('/')
     }, [])
 
-    // useEffect(() => {
-    //     cookies.token && router.push('/')
-    // }, [cookies])
-    
-    // if(cookies.token) return (<div className='w-full h-full fixed inset-0 z-50 bg-tt-bg-color text-[61px] flex items-center justify-center'>Loading...</div>)
-
     return (
         <React.Fragment>
-            <div className='w-full min-h-screen bg-white'>
+            <div className='w-full min-h-screen bg-white relative'>
                 <div className='min-h-screen lg:h-screen h-auto w-full flex lg:flex-row flex-col-reverse'>
                     <div className='login--banner flex items-center justify-center relative lg:h-full h-[280px]'>
                         <Logo className='h-1/2 lg:min-h-[380px] min-h-full max-w-full p-[30px] w-full text-white z-50' />
@@ -81,13 +75,18 @@ const LoginPage: NextPage = () => {
                                 <div className='max-w-[380px] w-[300px] h-[45px] bg-white mb-3 rounded-[50px] px-4 flex items-center border-[1px] border-[#cfd9de]'>
                                     <Input label='Password' type="password" name="password" value={password} onChange={handleChangeUser} />
                                 </div>
-                                <button type='submit' className='max-w-[380px] w-[300px] h-[45px] bg-tt-main-color mb-3 rounded-[50px] px-3 flex items-center justify-center text-[18px] font-bold text-white'>
+                                <button type='submit' className='max-w-[380px] w-[300px] h-[45px] bg-tt-main-color mb-3 rounded-[50px] px-3 flex items-center justify-center text-[18px] font-bold text-white'
+                                    onClick={() => setShowNotify(true)}
+                                >
                                     <span>Đăng nhập</span>
                                 </button>
                             </form>
                         </div>
                     </div>
                 </div>
+                {/* NotifyModule */}
+                {/* {showNotify &&  <NotifyModule error={user.error} success={user.success} onClick={handleSubmit} setShowNotify={setShowNotify} />} */}
+    
                 {/* <div>Infomation</div> */}
             </div>
         </React.Fragment>
