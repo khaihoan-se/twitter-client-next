@@ -16,7 +16,7 @@ const ToolEditer = ({ onImageChange }: ToolEditerProps) => {
             <div className='toolediter--media min-w-[36px] min-h-[36px] rounded-full hover:bg-tt-hover-maincl-color flex items-center justify-center cursor-pointer relative'>
                 <MediaIcon className='w-[20px] h-[20px] text-tt-main-color' />
                 <span className='hidden px-[4px] py-[2px] bg-slate-500 absolute top-[100%] text-[12px] rounded-sm text-white'>Media</span>
-                <input accept='image/jpeg,image/png,image/webp,image/gif' multiple type='file' className='absolute w-full h-full opacity-0 top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] cursor-pointer z-40' onChange={onImageChange} />
+                <input accept='image/jpeg,image/png,image/webp,image/gif,video/*' multiple type='file' className='absolute w-full h-full opacity-0 top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] cursor-pointer z-40' onChange={onImageChange} />
             </div>
             {/* GifIcon */}
             <div className='toolediter--gif min-w-[36px] min-h-[36px] rounded-full hover:bg-tt-hover-maincl-color flex items-center justify-center cursor-pointer relative'>

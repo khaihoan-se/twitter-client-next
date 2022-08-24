@@ -1,17 +1,21 @@
-import React, { useState, useRef } from 'react'
-import Avatar from './Avatar'
-import { Editor, EditorState, convertToRaw, ContentState } from 'draft-js'
+import React, { useState, useRef } from 'react';
+import Avatar from './Avatar';
+import { Editor, EditorState, convertToRaw, ContentState } from 'draft-js';
 import TheEarthIcon from '../icons/TheEarthIcon';
 import ToolEditer from './ToolEditer';
 import classNames from 'classnames';
 import ValuePhoto from './ValuePhoto';
 import NoticeByPhoto from './NoticeByPhoto';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
 import { addPost } from '@/redux/actions/postAction';
 import axios from 'axios';
+import { useCookies } from 'react-cookie';
+import PostApi from '@/api/PostApi';
 
 const Editer = () => {
     const dispatch = useDispatch()
+
+    const [cookies, setCookie] = useCookies(['token']);    
 
     const { user } = useSelector((state: any) => state.auth)
 
@@ -24,6 +28,8 @@ const Editer = () => {
 
     const [preview, setPreview] = useState<string[]>([])
     const [images, setImages] = useState('')
+    const [multipleProgress, setMultipleProgress] = useState(0);
+
     const fileobj: any = [];
 
     const editor = useRef<HTMLDivElement>(null);
@@ -76,17 +82,6 @@ const Editer = () => {
             ...preview.slice(index + 1, preview.length),
         ])
     }
-    // test
-    const apiUrl = 'http://localhost:5000/api/';
-
-    const singleFileUpload = async (data: any, options: any) => {
-        try {
-            await axios.post(apiUrl + 'create-post', data, options);
-        } catch (error) {
-            throw error;
-        }
-    }
-    const [multipleProgress, setMultipleProgress] = useState(0);
 
     const mulitpleFileOptions = {
         onUploadProgress: (progressEvent: any) => {
@@ -95,9 +90,8 @@ const Editer = () => {
             setMultipleProgress(percentage);
         },
         headers: {
-            Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZTE0YTJiMDhhOGNhNjYzNThkOGFmOCIsImlhdCI6MTY2MDEzMDExNCwiZXhwIjoxNjYwMjE2NTE0fQ.2gXu-9L3X6Udj0zdZe9u8bvpz2Qg9BN0DeFWubGH3O8',
+            Authorization: cookies.token,
             Accept: '*/*',
-
         }
     }
     /* Handle Submit data */
@@ -120,13 +114,19 @@ const Editer = () => {
         for (let i = 0; i < images.length; i++) {
             formData.append('images', images[i]);
         }
-        
-        await singleFileUpload(formData, mulitpleFileOptions)
-        const editor = EditorState.push(editorState, ContentState.createFromText(''), 'remove-range'); // Reset Input Editor
-        setEditorState(editor)
-        setPreview([])
+
+        try {
+            await PostApi.createPost(formData, mulitpleFileOptions)
+            // await singleFileUpload(formData, mulitpleFileOptions)
+            const editor = EditorState.push(editorState, ContentState.createFromText(''), 'remove-range'); // Reset Input Editor
+            setEditorState(editor)
+            setPreview([])
+        } catch (error) {
+            console.log(error);
+        }
     }
-    
+        console.log(preview);
+
     return (
         <React.Fragment>
             <div className='bg-th-background py-[4px] h-auto'>
@@ -134,7 +134,6 @@ const Editer = () => {
                     <div className='flex-row flex'>
                         <div className='pt-[4px] basis-[43px] mr-[11px] grow-0'>
                             <Avatar src={user.avatar ? user.avatar : '/img/benner_login_242000.png'} className='w-[43px] h-[43px]' />
-                            {/* <Avatar src={url ? url : '/img/benner_login_242000.png'} /> */}
                         </div>
                         <div className='pt-[4px] w-full h-full'>
                             {/* Rich Text Editor */}

@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import LoginApi from '@/api/LoginApi';
 import { dispatchUser, dispatchLogin, dispatchToken } from '@/redux/actions/authAction'
-import useLocalStorage from '@/hooks/useLocalStorage';
 import { useCookies } from 'react-cookie';
 
 interface BaseLayoutProps {
@@ -18,8 +17,6 @@ const BaseLayout = ({ children }: BaseLayoutProps) => {
     const dispatch = useDispatch()
 
     const auth = useSelector((state: any) => state.auth)
-
-    // const [firstLogin, setFirstLogin] = useLocalStorage<boolean>('firstLogin', false);
 
     // store cookies with 
     const [cookies, setCookie] = useCookies(['token']);
@@ -45,7 +42,7 @@ const BaseLayout = ({ children }: BaseLayoutProps) => {
                 <meta charSet="utf-8" />
                 <body className='app light blue' />
             </Helmet> */}
-            <main className='app dark blue'>
+            <main className='app light blue'>
                 <div className={classNames(
                     'flex min-h-screen mx-auto',
                     router.pathname !== '/login' ? 'container' : ''
