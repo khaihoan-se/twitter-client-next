@@ -7,4 +7,5 @@ module.exports = {
         'scontent.fsgn2-4.fna.fbcdn.net'
       ],
     },
+    reactStrictMode: false,
 }
