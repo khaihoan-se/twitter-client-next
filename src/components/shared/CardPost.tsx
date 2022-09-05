@@ -6,12 +6,13 @@ import { BiDotsHorizontalRounded } from 'react-icons/bi'
 import { changeText } from '@/utils';
 import ReactHtmlParser from 'react-html-parser'
 import ValuePhoto from './ValuePhoto'
+import CardPostPhoto from './CardPostPhoto'
 
 interface CardPostProps {
     description: any;
     images: any
 }
-const CardPost: React.FC<CardPostProps> = ({description, images}) => {    
+const CardPost: React.FC<CardPostProps> = ({description, images}) => {
     return (
         <React.Fragment>
             <div className='bg-tt-bg-color py-[4px] max-h-[100vh] h-auto border-b-[1px] border-tt-border-color cursor-pointer hover:bg-tt-hover-main-color'>
@@ -48,14 +49,23 @@ const CardPost: React.FC<CardPostProps> = ({description, images}) => {
                                 </div>
                             </div>
                             {/* Description */}
-                            <div className='text-[15px]'>
-                                {description  && description.map((item: any, index: number) => (
-                                    <p key={index}>
-                                        {ReactHtmlParser(changeText(item.text))}
-                                    </p>
-                                ))}
+                            <div>
+                                {description.length < 2 && description[0].text === '' ? '' : (
+                                    <div className='text-[15px]'>
+                                        {description && description.map((item: any) => (
+                                            <div key={item.key}>
+                                                {ReactHtmlParser(changeText(item.text))}
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                                {images && (
+                                    <div className='mt-[12px]'>
+                                        {/* <ValuePhoto photos={images} /> */}
+                                        <CardPostPhoto images={images} />
+                                    </div>
+                                )}
                             </div>
-                            {images && <ValuePhoto photos={images} />}
                         </div>
                     </div>
                 </div>

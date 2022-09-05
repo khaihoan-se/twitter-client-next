@@ -20,7 +20,7 @@ class MyDocument extends Document {
   render(): ReactElement {
     return(
       <Html lang="en">
-        <Head></Head>
+        <Head />
         <body>
           <Main />
           <NextScript />

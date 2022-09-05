@@ -125,7 +125,6 @@ const Editer = () => {
             console.log(error);
         }
     }
-        console.log(preview);
 
     return (
         <React.Fragment>
@@ -145,7 +144,7 @@ const Editer = () => {
                             </div>
                             {preview.length > 0 && <ValuePhoto photos={preview} handleRemoveItem={handleRemoveItem} />}
                             {/* Everyone can reply */}
-                            <div className='w-full ml-[-8px] border-b-[1px] border-tt-border-color'>
+                            <div className='w-full border-b-[1px] border-tt-border-color'>
                                 <div className='pb-[12px] min-h-[24px] text-tt-main-color font-bold text-[15px] items-center'>
                                     <div className='hover:bg-tt-hover-maincl-color inline-flex items-center py-[2px] px-[12px] rounded-full cursor-pointer'>
                                         <TheEarthIcon className='w-[16px] h-[16px] mr-[4px]' />

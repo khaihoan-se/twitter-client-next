@@ -6,7 +6,7 @@ const PostApi = {
         return axiosClient.post(url, post, mulitpleFileOptions);
     },
     getAllPosts: () => {
-        const url = 'posts';
+        const url = 'get-posts?page=1&limit=5';
         return axiosClient.get(url);
     }
 }

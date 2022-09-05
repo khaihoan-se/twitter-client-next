@@ -4,16 +4,17 @@ import ProfileLineIcon from '../icons/ProfileLineIcon';
 import ValuePhotoItem from './ValuePhotoItem';
 
 interface ValuePhotoProps {
-    photos: string[];
+    photos: any[];
     handleRemoveItem?: any;
 }
-const ValuePhoto = ({ photos, handleRemoveItem }: ValuePhotoProps) => {
+const ValuePhoto = ({ photos, handleRemoveItem }: ValuePhotoProps) => {    
     return (
         <div className='my-[4px] flex flex-col w-full'>
             <div className='w-full h-auto mt-[4px] relative'>
                 {photos.length == 1 && (
                     <div className='relative overflow-hidden'>
                         <ValuePhotoItem image={photos[0]} handleRemoveItem={handleRemoveItem} index={0} />
+                        {/* http://localhost:5000/uploads/2022-08-30T16-32-51.322Z-b0facced7bbb3422678ff4c2a01ffe5e.jpg */}
                     </div>
                 )}
                 {photos.length == 2 && (

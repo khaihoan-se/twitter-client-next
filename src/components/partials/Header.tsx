@@ -12,7 +12,7 @@ const Header = () => {
    const { user, isLogged } = useSelector((state: any) => state.auth)
 
    const [ showLogout, setShowLogout ] = useState<boolean>(false)
-
+   
    const handleShowLogout = (event: any) => {
       event.stopPropagation()
       setShowLogout(!showLogout)
