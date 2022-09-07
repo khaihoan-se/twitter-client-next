@@ -5,7 +5,6 @@ import { CgClose } from 'react-icons/cg'
 import { BiDotsHorizontalRounded } from 'react-icons/bi'
 import { changeText } from '@/utils';
 import ReactHtmlParser from 'react-html-parser'
-import ValuePhoto from './ValuePhoto'
 import CardPostPhoto from './CardPostPhoto'
 
 interface CardPostProps {

@@ -143,3 +143,8 @@ body {
 .bg--opacity {
     background: rgba(0, 0, 0, 0.3);
 }
+
+.react-player-video {
+    width: 100% !important;
+    height: 100% !important;
+}
