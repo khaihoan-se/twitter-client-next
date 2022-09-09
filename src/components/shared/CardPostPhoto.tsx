@@ -6,7 +6,6 @@ interface CardPostPhotoProps {
     images: any
 }
 const CardPostPhoto = ({ images }: CardPostPhotoProps) => {
-    console.log(images)
     return (
         <div className='my-[4px] flex flex-col w-full'>
             {images.length > 0 && images[0].fileType === 'video/mp4' ? (

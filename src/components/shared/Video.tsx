@@ -10,7 +10,7 @@ const Video: React.FC<VideoProps> = ({ src }) => {
             <ReactPlayer 
                 url={`http://localhost:5000/${src}`}
                 muted={false}
-                playing={true}
+                playing={false}
                 controls={true}
                 className='react-player-video'
             />

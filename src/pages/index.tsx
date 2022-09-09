@@ -30,10 +30,10 @@ const HomePage: NextPage<HomePage> = ({
             {/* Input Post */}
             <Editer />
             {/* CardPost */}
-            {/* {listPosts && listPosts.posts.map((item: any, index: number) => (
-               <CardPost description={item.description} images={item.images} key={index} />
-            ))} */}
-            <PostList data={listPosts.posts} />
+            <div className='min-h-[100vh]'>
+               <PostList data={listPosts.posts} />
+
+            </div>
          </ClientOnly>
       </React.Fragment>
    )

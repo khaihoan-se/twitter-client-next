@@ -7,6 +7,7 @@ const PostApi = {
     },
     getAllPosts: () => {
         const url = 'get-posts?page=1&limit=5';
+        // const url = 'get-posts';
         return axiosClient.get(url);
     }
 }

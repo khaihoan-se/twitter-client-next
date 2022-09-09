@@ -49,7 +49,7 @@ const CardPost: React.FC<CardPostProps> = ({description, images}) => {
                             </div>
                             {/* Description */}
                             <div>
-                                {description.length < 2 && description[0].text === '' ? '' : (
+                                {/* {description.length < 2 && description[0].text === '' ? '' : ( */}
                                     <div className='text-[15px]'>
                                         {description && description.map((item: any) => (
                                             <div key={item.key}>
@@ -57,7 +57,7 @@ const CardPost: React.FC<CardPostProps> = ({description, images}) => {
                                             </div>
                                         ))}
                                     </div>
-                                )}
+                                {/* )} */}
                                 {images && (
                                     <div className='mt-[12px]'>
                                         {/* <ValuePhoto photos={images} /> */}
