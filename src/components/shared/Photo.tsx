@@ -22,7 +22,7 @@ const Photo = ({ photos, handleRemoveItem }: PhotoProps) => {
                         'relative overflow-hidden rounded-2xl self-start',
                         imageHeight > 510 ? 'max-h-[510px] max-w-[382.5px]' : ''
                     )}>
-                        <img src={`http://localhost:5000/${photos[0].filePath}`} onLoad={onImgLoad} alt='image' className='w-full rounded-[16px] h-full min-h-full object-cover' />
+                        <img src={`http://localhost:5000/${photos[0].filePath}`} onLoad={onImgLoad} alt='image' className='w-full rounded-[16px] h-full min-h-full object-cover photo--border' />
 
                         {/* <ValuePhotoItem image={`http://localhost:5000/${photos[0].filePath}`} handleRemoveItem={handleRemoveItem} index={0} /> */}
                         {/* http://localhost:5000/uploads/2022-08-30T16-32-51.322Z-b0facced7bbb3422678ff4c2a01ffe5e.jpg */}
@@ -31,44 +31,53 @@ const Photo = ({ photos, handleRemoveItem }: PhotoProps) => {
                 {photos.length == 2 && (
                     <div className='flex gap-[11px] items-center h-[290px]'>
                         <div className='relative w-1/2 h-full overflow-hidden'>
-                            <ValuePhotoItem image={`http://localhost:5000/${photos[0].filePath}`} handleRemoveItem={handleRemoveItem} index={0} className='h-full min-h-full object-cover' />
+                            <img src={`http://localhost:5000/${photos[0].filePath}`} alt='image' className='w-full rounded-[16px] h-full min-h-full object-cover photo--border' />
+                            {/* <ValuePhotoItem image={`http://localhost:5000/${photos[0].filePath}`} handleRemoveItem={handleRemoveItem} index={0} className='h-full min-h-full object-cover' /> */}
                         </div>
                         <div className='relative w-1/2 h-full overflow-hidden'>
-                            <ValuePhotoItem image={`http://localhost:5000/${photos[1].filePath}`} handleRemoveItem={handleRemoveItem} index={1} className='h-full min-h-full object-cover' />
+                            <img src={`http://localhost:5000/${photos[1].filePath}`} alt='image' className='w-full rounded-[16px] h-full min-h-full object-cover photo--border' />
+                            {/* <ValuePhotoItem image={`http://localhost:5000/${photos[1].filePath}`} handleRemoveItem={handleRemoveItem} index={1} className='h-full min-h-full object-cover' /> */}
                         </div>
                     </div>
                 )}
                 {photos.length == 3 && (
                     <div className='flex gap-[11px] items-center h-[290px]'>
                         <div className='relative w-1/2 h-full overflow-hidden'>
-                            <ValuePhotoItem image={`http://localhost:5000/${photos[0].filePath}`} handleRemoveItem={handleRemoveItem} index={0} className='h-full min-h-full object-cover' />
+                            <img src={`http://localhost:5000/${photos[0].filePath}`} alt='image' className='w-full rounded-[16px] h-full min-h-full object-cover photo--border' />
+                            {/* <ValuePhotoItem image={`http://localhost:5000/${photos[0].filePath}`} handleRemoveItem={handleRemoveItem} index={0} className='h-full min-h-full object-cover' /> */}
                         </div>
                         <div className='w-1/2 h-full gap-[11px] flex justify-between flex-col'>
                             <div className='h-[49%] w-full relative overflow-hidden'>
-                                <ValuePhotoItem image={`http://localhost:5000/${photos[1].filePath}`} handleRemoveItem={handleRemoveItem} index={1} className='h-full min-h-full object-cover' />
+                                <img src={`http://localhost:5000/${photos[1].filePath}`} alt='image' className='w-full rounded-[16px] h-full min-h-full object-cover photo--border' />
+                                {/* <ValuePhotoItem image={`http://localhost:5000/${photos[1].filePath}`} handleRemoveItem={handleRemoveItem} index={1} className='h-full min-h-full object-cover' /> */}
                             </div>
                             <div className='h-[49%] w-full relative overflow-hidden'>
-                                <ValuePhotoItem image={`http://localhost:5000/${photos[2].filePath}`} handleRemoveItem={handleRemoveItem} index={2} className='h-full min-h-full object-cover' />
+                                <img src={`http://localhost:5000/${photos[2].filePath}`} alt='image' className='w-full rounded-[16px] h-full min-h-full object-cover photo--border' />
+                                {/* <ValuePhotoItem image={`http://localhost:5000/${photos[2].filePath}`} handleRemoveItem={handleRemoveItem} index={2} className='h-full min-h-full object-cover' /> */}
                             </div>
                         </div>
                     </div>
                 )}
                 {photos.length == 4 && (
-                    <div className='flex gap-[11px] items-center h-[290px]'>
-                        <div className='w-1/2 h-full gap-[11px] flex justify-between flex-col'>
+                    <div className='flex items-center h-[290px]'>
+                        <div className='w-1/2 h-full flex justify-between flex-col'>
                             <div className='h-[49%] w-full relative overflow-hidden'>
-                                <ValuePhotoItem image={`http://localhost:5000/${photos[0].filePath}`} handleRemoveItem={handleRemoveItem} index={0} className='h-full min-h-full object-cover' />
+                                <img src={`http://localhost:5000/${photos[0].filePath}`} alt='image' className='w-full rounded-[16px] h-full min-h-full object-cover photo--border' />
+                                {/* <ValuePhotoItem image={`http://localhost:5000/${photos[0].filePath}`} handleRemoveItem={handleRemoveItem} index={0} className='h-full min-h-full object-cover' /> */}
                             </div>
                             <div className='h-[49%] w-full relative overflow-hidden'>
-                                <ValuePhotoItem image={`http://localhost:5000/${photos[1].filePath}`} handleRemoveItem={handleRemoveItem} index={1} className='h-full min-h-full object-cover' />
+                                <img src={`http://localhost:5000/${photos[1].filePath}`} alt='image' className='w-full rounded-[16px] h-full min-h-full object-cover photo--border' />
+                                {/* <ValuePhotoItem image={`http://localhost:5000/${photos[1].filePath}`} handleRemoveItem={handleRemoveItem} index={1} className='h-full min-h-full object-cover' /> */}
                             </div>
                         </div>
                         <div className='w-1/2 h-full gap-[11px] flex justify-between flex-col'>
                             <div className='h-[49%] w-full relative overflow-hidden'>
-                                <ValuePhotoItem image={`http://localhost:5000/${photos[2].filePath}`} handleRemoveItem={handleRemoveItem} index={2} className='h-full min-h-full object-cover' />
+                                <img src={`http://localhost:5000/${photos[2].filePath}`} alt='image' className='w-full rounded-[16px] h-full min-h-full object-cover photo--border' />
+                                {/* <ValuePhotoItem image={`http://localhost:5000/${photos[2].filePath}`} handleRemoveItem={handleRemoveItem} index={2} className='h-full min-h-full object-cover' /> */}
                             </div>
                             <div className='h-[49%] w-full relative overflow-hidden'>
-                                <ValuePhotoItem image={`http://localhost:5000/${photos[3].filePath}`} handleRemoveItem={handleRemoveItem} index={3} className='h-full min-h-full object-cover' />
+                                <img src={`http://localhost:5000/${photos[3].filePath}`} alt='image' className='w-full rounded-[16px] h-full min-h-full object-cover photo--border' />
+                                {/* <ValuePhotoItem image={`http://localhost:5000/${photos[3].filePath}`} handleRemoveItem={handleRemoveItem} index={3} className='h-full min-h-full object-cover' /> */}
                             </div>
                         </div>
                     </div>

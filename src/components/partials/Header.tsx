@@ -25,10 +25,10 @@ const Header = () => {
    }, [])
    
    return (
-      <div className='bg-tt-bg-color grow items-end z-10 relative flex justify-end'>
+      <div className='bg-tt-bg-color grow items-end z-10 flex justify-end'>
          <div className='xl:w-[275px] sm:w-[88px] w-[68px]'>
             <div className='h-full top-0 fixed'>
-               <div className='no--scrollbar overflow-y-auto justify-between h-full xl:w-[275px] sm:w-[88px] w-[68px] sm:px-[12px] px-[4px] flex flex-col'>
+               <div className='no--scrollbar justify-between h-full xl:w-[275px] sm:w-[88px] w-[68px] sm:px-[12px] px-[4px] flex flex-col'>
                   {/* Top */}
                   <div className='items-start'>
                      {/* Logo */}
@@ -66,12 +66,12 @@ const Header = () => {
                         <div className='xl:block hidden'>
                            <BiDotsHorizontalRounded className='text-[20px]' />
                         </div>
+                        {showLogout && <UserLogout />}
                      </div>
                   )}
                </div>
             </div>
          </div>
-         {showLogout && <UserLogout />}
       </div>
    )
 }

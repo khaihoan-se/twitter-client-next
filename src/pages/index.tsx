@@ -32,14 +32,13 @@ const HomePage: NextPage<HomePage> = ({
             {/* CardPost */}
             <div className='min-h-[100vh]'>
                <PostList data={listPosts.posts} />
-
             </div>
          </ClientOnly>
       </React.Fragment>
    )
 }
 export const getStaticProps: GetStaticProps = async () => {
-   const data = await PostApi.getAllPosts()
+   const data = await PostApi.getAllPosts(1, 5)
    return {
       props: {
          listPosts: data

@@ -73,7 +73,7 @@ img {
 }
 /* 🚁 Layout 🚁 */
 html, body {
-    @apply h-full overflow-auto bg-tt-bg-color;
+    @apply h-full bg-tt-bg-color;
 }
 
 body {
@@ -147,4 +147,8 @@ body {
 .react-player-video {
     width: 100% !important;
     height: 100% !important;
+}
+
+.photo--border {
+    border: 1px solid rgb(207, 217, 222);
 }
