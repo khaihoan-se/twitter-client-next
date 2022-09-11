@@ -7,8 +7,6 @@ import classNames from 'classnames';
 import ValuePhoto from './ValuePhoto';
 import NoticeByPhoto from './NoticeByPhoto';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPost } from '@/redux/actions/postAction';
-import axios from 'axios';
 import { useCookies } from 'react-cookie';
 import PostApi from '@/api/PostApi';
 
@@ -101,23 +99,18 @@ const Editer = () => {
         const data = {
             description: convertToRaw(editorState.getCurrentContent()).blocks,
             images: preview
-        }
-        // console.log(data.description);
-        
-        dispatch(addPost(data))
+        }        
         const formData: any = new FormData();
         for (let j = 0; j < data.description.length; j++) {
             formData.append('key', data.description[j].key)
             formData.append('text', data.description[j].text)
         }
-        // formData.append('description', newPost)
         for (let i = 0; i < images.length; i++) {
             formData.append('images', images[i]);
         }
 
         try {
             await PostApi.createPost(formData, mulitpleFileOptions)
-            // await singleFileUpload(formData, mulitpleFileOptions)
             const editor = EditorState.push(editorState, ContentState.createFromText(''), 'remove-range'); // Reset Input Editor
             setEditorState(editor)
             setPreview([])

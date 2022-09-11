@@ -41,3 +41,7 @@ export interface AuthState {
     isLogged: boolean;
     user: User;
 }
+
+export interface PostType {
+    
+}

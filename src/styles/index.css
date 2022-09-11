@@ -15,6 +15,7 @@
     --hover-header-color: rgba(15, 20, 25, 0.1);
     --hover-main-color: rgba(0, 0, 0, 0.03);
     --border-color: rgb(239, 243, 244);
+    --dropShadow-color: theme('dropShadow.sm');
 }
 .dark {
     --bg-color: rgb(0, 0, 0);
@@ -26,6 +27,7 @@
     --hover-header-color: rgba(231, 233, 234, 0.1);
     --hover-main-color: rgba(255, 255, 255, 0.03);
     --border-color: rgb(47, 51, 54);
+    --dropShadow-color: theme('dropShadow.xl');
 }
 .blue {
     --main-color: rgb(29, 155, 240);
@@ -79,10 +81,10 @@ html, body {
 body {
     @apply m-0 text-sm;
 }
-::-webkit-scrollbar { 
+/* ::-webkit-scrollbar { 
     width: 0 !important;
     display: none; 
-}
+} */
 
 .app {
     @apply bg-tt-bg-color text-tt-text-color;
@@ -95,7 +97,7 @@ body {
 }
 /* Text Post */
 .hashtag--text {
-    @apply text-tt-main-color font-bold hover:underline;
+    @apply text-tt-main-color hover:underline;
 }
 .link--text {
     @apply text-tt-main-color hover:underline;
@@ -151,4 +153,8 @@ body {
 
 .photo--border {
     border: 1px solid rgb(207, 217, 222);
+}
+
+.filter--arrow--userlogout {
+    filter: drop-shadow(rgb(51, 54, 57) 1px -1px 1px);
 }

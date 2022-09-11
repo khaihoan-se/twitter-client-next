@@ -61,12 +61,12 @@ const Header = () => {
                         onClick={handleShowLogout}
                      >
                         <div>
-                           <CardUser name={user.fullname} email={user.username} url={user.avatar} />
+                           <CardUser name={user.fullname} email={user.username} url={user.avatar} isHidden={true} />
                         </div>
                         <div className='xl:block hidden'>
                            <BiDotsHorizontalRounded className='text-[20px]' />
                         </div>
-                        {showLogout && <UserLogout />}
+                        {showLogout && <UserLogout user={user} />}
                      </div>
                   )}
                </div>

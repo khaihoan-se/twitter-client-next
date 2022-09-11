@@ -9,7 +9,7 @@ import CardPostPhoto from './CardPostPhoto'
 import Link from 'next/link'
 
 interface CardPostProps {
-    postData: any
+    postData: any;
 }
 const CardPost: React.FC<CardPostProps> = ({ postData }) => {    
     return (
@@ -51,7 +51,7 @@ const CardPost: React.FC<CardPostProps> = ({ postData }) => {
                                 {/* Description */}
                                 <div>
                                     {postData.description.length < 2 && postData.description[0].text === '' ? '' : (
-                                        <div className='text-[15px]'>
+                                        <div className='text-[15px] text-tt-text-color'>
                                             {postData.description && postData.description.map((item: any) => (
                                                 <div key={item.key}>
                                                     {ReactHtmlParser(changeText(item.text))}

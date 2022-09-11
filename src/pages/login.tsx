@@ -62,10 +62,10 @@ const LoginPage: NextPage = () => {
                     <div className='lg:w-[55vw] w-full h-full min-h-screen p-[15px] bg-white flex justify-center flex-col items-center'>
                         <div className='w-full h-full p-[19px] md:max-w-full max-w-[600px] min-w-[45vw]'>
                             <Logo className='h-12 w-12 text-tt-main-color' />
-                            <div className='text-tt-text-color leading-[60px] md:text-[61px] text-[41px] font-bold md:my-[46px] my-[26px]'>
+                            <div className='text-black leading-[60px] md:text-[61px] text-[41px] font-bold md:my-[46px] my-[26px]'>
                                 <span>Đang diễn ra ngay bây giờ</span>
                             </div>
-                            <div className='text-tt-text-color tracking-[1px] md:text-[31px] text-[21px] font-bold mb-[32px]'>
+                            <div className='text-black tracking-[1px] md:text-[31px] text-[21px] font-bold mb-[32px]'>
                                 <span>Tham gia Twitter hôm nay.</span>
                             </div>
                             <form onSubmit={handleSubmit}>

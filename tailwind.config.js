@@ -29,6 +29,13 @@ module.exports = {
             'dark-shadow-dark': 'rgb(255 255 255 / 20%) 0px 0px 15px, rgb(255 255 255 / 15%) 0px 0px 3px 1px;',
 
             'tt-shadow': 'var(--shadow-color)'
+         },
+         dropShadow: {
+            'sm': 'rgb(207, 217, 222) 1px -1px 1px',
+            'xl': 'rgb(51, 54, 57) 1px -1px 1px',
+
+            'tt-dropShadow': 'var(--dropShadow-color)'
+
          }
       },
    },

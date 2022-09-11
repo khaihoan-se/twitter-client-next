@@ -1,4 +1,5 @@
 import { NextPage } from 'next';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 
@@ -6,13 +7,11 @@ interface PostDetailProps {
     query?: any
 }
 const PostDetail: NextPage<PostDetailProps> = ({ query }) => {
-    const router = useRouter()
-    console.log(query);
-    
+    const router = useRouter()    
     return (
-        <div>
-            PostDetail
-        </div>
+        <Link href='/'>
+            <a>PostDetail</a>
+        </Link>
     );
 }
 

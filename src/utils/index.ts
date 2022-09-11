@@ -20,17 +20,13 @@ export const checkIfValidHashtag = (text: string) => {
 
 export const changeText = (text: string) => {
     const arrText = text.split(' ');
-    
     const newText = arrText.map(word => {
         if(checkIfValidHashtag(word)) {
             return `<a class='hashtag--text' href="search?hastag=${word}">${word}</a>`;
         }
         if(isURL(word)) {
             return `<a class='link--text' href="${word}" target="_blank">${shortenedLink(word)}</a>`;
-        }
-        if(word == '' || text.length == 0) {
-            return `<p></p>`
-        }
+        }       
         if(word == '') {
             return `<br/>`
         }

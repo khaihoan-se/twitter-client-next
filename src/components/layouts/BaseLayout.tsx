@@ -4,8 +4,9 @@ import { useRouter } from 'next/router'
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import LoginApi from '@/api/LoginApi';
-import { dispatchUser, dispatchLogin, dispatchToken } from '@/redux/actions/authAction'
+import { dispatchUser, dispatchLogin } from '@/redux/actions/authAction'
 import { useCookies } from 'react-cookie';
+import { usePreserveScroll } from '@/hooks/usePreserveScroll'
 
 interface BaseLayoutProps {
     children: ReactNode;
@@ -13,7 +14,7 @@ interface BaseLayoutProps {
 
 const BaseLayout = ({ children }: BaseLayoutProps) => {
     const router = useRouter()
-
+    usePreserveScroll()
     const dispatch = useDispatch()
 
     const auth = useSelector((state: any) => state.auth)
@@ -28,7 +29,7 @@ const BaseLayout = ({ children }: BaseLayoutProps) => {
                 const { data } = await LoginApi.getTokenSuccess()
                 dispatch(dispatchUser(data.user))
                 dispatch(dispatchLogin());
-                dispatch(dispatchToken(data.access_token))
+                // dispatch(dispatchToken(data.access_token))
                 setCookie('token', data.access_token)
             } catch (error) {
                 console.log(error)
@@ -42,12 +43,12 @@ const BaseLayout = ({ children }: BaseLayoutProps) => {
                 <meta charSet="utf-8" />
                 <body className='app light blue' />
             </Helmet> */}
-            <main className='app dark blue'>
+            <main className='app dark blue' id='scrolling-element'>
                 <div className={classNames(
                     'flex min-h-screen mx-auto',
                     router.pathname !== '/login' ? 'container' : ''
                 )}>
-                    {router.pathname === '/login' ? (<>{children}</>) :
+                    {router.pathname === '/login' || router.pathname === '/logout' ? (<>{children}</>) :
                     (<>
                         <Header />
                         <div className='app-content items-start shrink grow flex basis-auto flex-col'>
