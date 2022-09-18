@@ -2,7 +2,9 @@ const ACTIONS = {
     LOGIN: 'auth/login',
     LOGOUT: 'auth/logout',
     USER: 'auth/user',
-    TOKEN: 'auth/token',
+
+    CREATE_POST: 'post/CREATE_POST',
+    GET_POST: 'post/GET_POST'
 }
 
 export default ACTIONS;

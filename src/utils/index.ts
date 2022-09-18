@@ -1,3 +1,4 @@
+
 export const isURL = (text: string) => {
     var urlPattern = new RegExp('^(https?:\\/\\/)?'+ // validate protocol
 	    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // validate domain name
@@ -33,4 +34,11 @@ export const changeText = (text: string) => {
         return `<span>${word}</span>`;
     })
     return newText.join(' ');
+}
+
+export const getDateTimePost = (datePost: any) => {
+    const postDate = new Date(datePost).getTime()
+    const nowDate = Date.now()
+    const timeDiff = nowDate - postDate
+    return timeDiff
 }

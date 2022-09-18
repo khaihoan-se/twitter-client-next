@@ -3,7 +3,7 @@ import ClientOnly from '@/components/shared/ClientOnly'
 import Editer from '@/components/shared/Editer'
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import React from 'react'
+import React, { useEffect } from 'react'
 import PostApi from '@/api/PostApi'
 import PostList from '@/components/features/home/PostList'
 
@@ -11,18 +11,11 @@ interface HomePage {
    listPosts: any
 }
 
-const HomePage: NextPage<HomePage> = ({ 
-   listPosts 
-}) => {
+const HomePage: NextPage<HomePage> = ({ listPosts }) => {
    return (
       <React.Fragment>
          <Head>
             <title>Home / Twitter</title>
-            <script
-               dangerouslySetInnerHTML={{
-                  __html: `history.scrollRestoration = "manual"`,
-               }}
-            />
          </Head>
          <ClientOnly>
             {/* Home Header */}
@@ -30,9 +23,7 @@ const HomePage: NextPage<HomePage> = ({
             {/* Input Post */}
             <Editer />
             {/* CardPost */}
-            <div className='min-h-[100vh]'>
-               <PostList data={listPosts.posts} />
-            </div>
+            <PostList data={listPosts.posts} />
          </ClientOnly>
       </React.Fragment>
    )

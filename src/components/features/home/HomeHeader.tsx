@@ -4,7 +4,7 @@ import React from 'react';
 const HomeHeader = () => {
     return (
         <React.Fragment>
-            <div className='sticky top-0 z-50'>
+            <div className='sticky top-0 z-40'>
                 <div className='w-full h-[53px] flex items-center justify-between px-[16px] mx-auto backdrop-blur-md bg-tt-bg-atc-color'>
                     <div className='shrink h-full grow flex items-center'>
                         <h2 className='font-bold text-[20px] text-tt-text-color'>Home</h2>

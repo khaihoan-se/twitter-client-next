@@ -5,12 +5,15 @@ import MoreIcon from '@/components/icons/MoreIcon'
 
 interface NavMenuProps {
     isLogged: boolean;
+    username: string;
 }
-const NavMenu: React.FC<NavMenuProps> = ({isLogged}) => {
+const NavMenu: React.FC<NavMenuProps> = ({ isLogged, username }) => {
     return isLogged ? (
         <nav>
             {MENU_HEADER_LISTS.map(item => (
-                <NavItem title={item.page} path={item.path} Icon={item.icon} key={item.path} IconActive={item.activeIcon} />
+                item.page === 'Profile' 
+                ? <NavItem title={item.page} path={`/${username}`} Icon={item.icon} key={item.path} IconActive={item.activeIcon} /> 
+                : <NavItem title={item.page} path={item.path} Icon={item.icon} key={item.path} IconActive={item.activeIcon} />
             ))}
             <NavItem title='More' Icon={MoreIcon} path='' />
         </nav>
@@ -24,4 +27,4 @@ const NavMenu: React.FC<NavMenuProps> = ({isLogged}) => {
     )
 }
 
-export default NavMenu
+export default React.memo(NavMenu)

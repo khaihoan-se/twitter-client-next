@@ -9,6 +9,7 @@ import NoticeByPhoto from './NoticeByPhoto';
 import { useDispatch, useSelector } from 'react-redux';
 import { useCookies } from 'react-cookie';
 import PostApi from '@/api/PostApi';
+import { createPostAction } from '@/redux/actions/postAction';
 
 const Editer = () => {
     const dispatch = useDispatch()
@@ -110,7 +111,8 @@ const Editer = () => {
         }
 
         try {
-            await PostApi.createPost(formData, mulitpleFileOptions)
+            const res: any = await PostApi.createPost(formData, mulitpleFileOptions)
+            dispatch(createPostAction(res.newPost))
             const editor = EditorState.push(editorState, ContentState.createFromText(''), 'remove-range'); // Reset Input Editor
             setEditorState(editor)
             setPreview([])

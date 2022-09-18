@@ -20,12 +20,12 @@ const UserLogout = ({ user }: UserLogoutProps) => {
                   <CheckUserLogout className='text-tt-main-color w-full h-[1.25em]' />
                </div>
             </div>
-            <div className='w-full p-4 text-tt-text-color text-[15px] font-normal hover:bg-tt-hover-header-color'>
+            <div className='w-full p-4 text-tt-text-color text-[15px] font-normal hover:bg-tt-hover-header-color cursor-pointer'>
                <span>Add an existing account</span>
             </div>
             <Link href='/logout'>
                <a className='w-full h-full'>
-                  <div className='w-full p-4 text-tt-text-color text-[15px] font-normal hover:bg-tt-hover-header-color'>
+                  <div className='w-full p-4 text-tt-text-color text-[15px] font-normal hover:bg-tt-hover-header-color cursor-pointer'>
                            <span>{`Log out @${user.username}`}</span>
                   </div>
                </a>

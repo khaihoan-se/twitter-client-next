@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import LoginApi from '@/api/LoginApi';
 import { dispatchUser, dispatchLogin } from '@/redux/actions/authAction'
 import { useCookies } from 'react-cookie';
-import { usePreserveScroll } from '@/hooks/usePreserveScroll'
 
 interface BaseLayoutProps {
     children: ReactNode;
@@ -14,7 +13,7 @@ interface BaseLayoutProps {
 
 const BaseLayout = ({ children }: BaseLayoutProps) => {
     const router = useRouter()
-    usePreserveScroll()
+    // usePreserveScroll()
     const dispatch = useDispatch()
 
     const auth = useSelector((state: any) => state.auth)

@@ -53,7 +53,7 @@ const LoginPage: NextPage = () => {
 
     return (
         <React.Fragment>
-            <div className='w-full min-h-screen bg-white relative'>
+            <div className='min-w-[100vw] min-h-screen bg-white relative'>
                 <div className='min-h-screen lg:h-screen h-auto w-full flex lg:flex-row flex-col-reverse'>
                     <div className='login--banner flex items-center justify-center relative lg:h-full h-[280px]'>
                         <Logo className='h-1/2 lg:min-h-[380px] min-h-full max-w-full p-[30px] w-full text-white z-50' />
@@ -84,10 +84,6 @@ const LoginPage: NextPage = () => {
                         </div>
                     </div>
                 </div>
-                {/* NotifyModule */}
-                {/* {showNotify &&  <NotifyModule error={user.error} success={user.success} onClick={handleSubmit} setShowNotify={setShowNotify} />} */}
-    
-                {/* <div>Infomation</div> */}
             </div>
         </React.Fragment>
     )

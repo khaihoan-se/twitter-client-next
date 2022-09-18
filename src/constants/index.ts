@@ -20,7 +20,7 @@ export const MENU_HEADER_LISTS = [
     { page: 'Messages', path: '/messages', icon: MessageLineIcon, activeIcon: MessageActiveIcon },
     { page: 'Bookmarks', path: '/bookmarks', icon: BookmarkLineIcon, activeIcon: BookmarkActiveIcon },
     { page: 'Lists', path: '/lists', icon: ListLineIcon, activeIcon: ListActionIcon },
-    { page: 'Profile', path: '/login', icon: ProfileLineIcon, activeIcon: ProfileActiveIcon },
+    { page: 'Profile', path: '/[username]', icon: ProfileLineIcon, activeIcon: ProfileActiveIcon },
 ]
 export const MENU_HEADER_LISTS_MOBILE = [
     { page: 'Explore', path: '/explore', icon: ExploreLineIcon, activeIcon: ExploreActiveIcon },

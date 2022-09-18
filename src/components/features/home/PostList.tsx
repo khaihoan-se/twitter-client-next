@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import CardPost from '@/components/shared/CardPost'
 import PostApi from '@/api/PostApi';
 import { useDispatch, useSelector } from 'react-redux';
+import { getPostAction } from '@/redux/actions/postAction';
 
 interface PostListProps {
    data: any
@@ -13,6 +14,13 @@ const PostList = ({ data }: PostListProps) => {
    const [hasMore, sethasMore] = useState(true);
    const [ page, setPage ] = useState(2);
 
+   const disptch = useDispatch()
+   const listPost = useSelector((state: any) => state.listPost)
+
+   useEffect(() => {
+      disptch(getPostAction(posts))
+   }, [posts])
+
    const fetchComments = async () => {
       const res: any = await PostApi.getAllPosts(page, 5)
       const data = res.posts      
@@ -22,6 +30,7 @@ const PostList = ({ data }: PostListProps) => {
    const fetchData = async () => {
       const commentsFormServer = await fetchComments();
       setPosts([...posts, ...commentsFormServer]);
+      disptch(getPostAction(posts))
       if (commentsFormServer.length === 0 || commentsFormServer.length < 5) {
          sethasMore(false);
       }
@@ -39,7 +48,7 @@ const PostList = ({ data }: PostListProps) => {
             overflow: 'initial',
          }}
       >
-         {posts.map((item: any) => (
+         {listPost.posts.map((item: any) => (
             <div key={item._id}>
                <CardPost postData={item} />
             </div>

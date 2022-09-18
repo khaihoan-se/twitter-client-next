@@ -16,6 +16,17 @@
     --hover-main-color: rgba(0, 0, 0, 0.03);
     --border-color: rgb(239, 243, 244);
     --dropShadow-color: theme('dropShadow.sm');
+    --logo-color: rgb(29, 155, 240);
+    /* Page Logout  */
+
+    --bg-logout: rgba(0, 0, 0, 0.4);
+    --subtext-logout: rgb(83, 100, 113);
+    --bg-button-logout: rgb(15, 20, 25);
+    --bg-button-hover-logout: rgb(39, 44, 48);
+    --bg-button-cancel-logout: rgba(0, 0, 0, 0);
+    --bg-button-cancel-hover-logout: rgb(15, 20, 25, 0.1);
+    --text-button-cancel-logout: rgb(15, 20, 25);
+    --border-color-button-cancel-logout: rgb(207, 217, 222);
 }
 .dark {
     --bg-color: rgb(0, 0, 0);
@@ -28,6 +39,17 @@
     --hover-main-color: rgba(255, 255, 255, 0.03);
     --border-color: rgb(47, 51, 54);
     --dropShadow-color: theme('dropShadow.xl');
+    --logo-color: rgb(214, 217, 219);
+    /* Page Logout  */
+
+    --bg-logout: rgba(91, 112, 131, 0.4);
+    --subtext-logout: rgb(113, 118, 123);
+    --bg-button-logout: rgb(239, 243, 244);
+    --bg-button-hover-logout: rgb(215, 219, 220);
+    --bg-button-cancel-logout: rgba(0, 0, 0, 0);
+    --bg-button-cancel-hover-logout: rgb(239, 243, 244, 0.1);
+    --text-button-cancel-logout: rgb(239, 243, 244);
+    --border-color-button-cancel-logout: rgb(83, 100, 113);
 }
 .blue {
     --main-color: rgb(29, 155, 240);
@@ -157,4 +179,18 @@ body {
 
 .filter--arrow--userlogout {
     filter: drop-shadow(rgb(51, 54, 57) 1px -1px 1px);
+}
+
+/* CardPost */
+.cardpost--time:hover span {
+    @apply block;
+}
+.min-h-calc-192 {
+    min-height: calc(192px);
+}
+.mr-calc--12px {
+    margin-right: calc(-12px);
+}
+.mb-calc--12px {
+    margin-bottom: calc(-12px);
 }

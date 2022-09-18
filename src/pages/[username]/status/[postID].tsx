@@ -9,7 +9,7 @@ interface PostDetailProps {
 const PostDetail: NextPage<PostDetailProps> = ({ query }) => {
     const router = useRouter()    
     return (
-        <Link href='/'>
+        <Link href='/' scroll={false}>
             <a>PostDetail</a>
         </Link>
     );

@@ -16,9 +16,3 @@ export const dispatchLogout = () => {
         type: ACTIONS.LOGOUT,
     };
 }
-export const dispatchToken = (data: any) => {
-    return {
-        type: ACTIONS.TOKEN,
-        payload: data
-    }
-}
