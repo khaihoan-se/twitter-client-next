@@ -21,6 +21,16 @@ module.exports = {
             'tt-hover-header-color': 'var(--hover-header-color)',
             'tt-hover-main-color': 'var(--hover-main-color)',
             'tt-border-color': 'var(--border-color)',
+            'tt-bg-logout': 'var(--bg-logout)',
+            'tt-subtext-logout': 'var(--subtext-logout)',
+            'tt-bg-button-logout': 'var(--bg-button-logout)',
+            'tt-bg-button-hover-logout': 'var(--bg-button-hover-logout)',
+            'tt-bg-button-cancel-logout': 'var(--bg-button-cancel-logout)',
+            'tt-bg-button-cancel-hover-logout': 'var(--bg-button-cancel-hover-logout)',
+            'tt-text-button-cancel-logout': 'var(--text-button-cancel-logout)',
+            'tt-border-color-button-cancel-logout': 'var(--border-color-button-cancel-logout)',
+
+            'tt-logo-color': 'var(--logo-color)',
 
             'tt-hover-maincl-color': 'var(--hover-maincl-color)'
          },
