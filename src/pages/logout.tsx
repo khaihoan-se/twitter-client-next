@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import Logo from '@/components/shared/Logo';
 import { NextPage } from "next";
 import { useRouter } from 'next/router';
@@ -13,6 +14,11 @@ const LogoutPage: NextPage = () => {
         router.push('/login')
         router.reload
     }
+    
+    useEffect(() => {
+        // Prefetch the dashboard page
+        router.prefetch('/login')
+    }, [])
     return (
         <div className='fixed inset-0 bg-tt-bg-logout flex items-center justify-center'>
             <div className='absolute inset-0 z-40' onClick={() => router.back()}></div>

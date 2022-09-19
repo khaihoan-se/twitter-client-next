@@ -8,8 +8,11 @@ import { BiDotsHorizontalRounded } from 'react-icons/bi'
 import { useSelector } from 'react-redux'
 import UserLogout from './UserLogout'
 import classNames from 'classnames'
+import { useCookies } from 'react-cookie'
 
 const Header = () => {
+   const [cookies, setCookie] = useCookies(['token']);
+   
    const { user, isLogged } = useSelector((state: any) => state.auth)
 
    const [ showLogout, setShowLogout ] = useState<boolean>(false)
